@@ -10,10 +10,9 @@ var car1_cords = {
  
 };
 var car2_cords = {
-    X: 20,
-    Y: 10,
+    X: 10,
+    Y: 100,
 };
-
 rover_image="supra_1.jpg";
 supra2_image="supra_2.PNG";
 mars_array =["e.jpg", "e2.jpg", "e3.jpg"];
@@ -106,6 +105,8 @@ function Down(bg_img, mov_car_img, stay_car_img, mov_car_cords, stay_car_cords){
 function Left(bg_img, mov_car_img, stay_car_img, mov_car_cords, stay_car_cords){
     if (mov_car_cords.X >= 0){
         mov_car_cords.X -= 10;
+        car1_cords.X - 10;
+        car2_cords.X - 10;
         console.log("when Left arrow is pressed, X="+mov_car_cords.X+" , Y= "+mov_car_cords.Y);
         uploadBackground(bg_img);
         uploadRover(mov_car_img, mov_car_cords);
@@ -115,6 +116,17 @@ function Left(bg_img, mov_car_img, stay_car_img, mov_car_cords, stay_car_cords){
 function Right(bg_img, mov_car_img, stay_car_img, mov_car_cords, stay_car_cords){
     if (mov_car_cords.X <= 700){
         mov_car_cords.X += 10;
+        car1_cords.X + 10;
+        car2_cords.X - 10;
+        if (car1_cords.X>200){
+            document.getElementById('status').innerHTML = "Car 1 Won!!!";
+            console.log("sddsaaaaaaaaaaa");
+        }
+        if (car2_cords.X>200){
+            document.getElementById('status').innerHTML = "Car 2 Won!!!";
+            console.log("sddsaaaaaaaaaaa");
+        }
+        console.log(car1_cords.X);
         console.log("when Right arrow is pressed, X="+mov_car_cords.X+" , Y= "+mov_car_cords.Y);
         uploadBackground(bg_img);
         uploadRover(mov_car_img, mov_car_cords);
